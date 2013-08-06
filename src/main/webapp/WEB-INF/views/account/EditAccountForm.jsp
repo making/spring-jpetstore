@@ -13,11 +13,11 @@
             </tr>
             <tr>
                 <td>New password:</td>
-                <td><form:input path="password" /> <form:errors path="password" /></td>
+                <td><form:password path="password" /> <form:errors path="password" /></td>
             </tr>
             <tr>
                 <td>Repeat password:</td>
-                <td><form:input path="repeatedPassword" /> <form:errors path="repeatedPassword" /></td>
+                <td><form:password path="repeatedPassword" /> <form:errors path="repeatedPassword" /></td>
             </tr>
         </table>
         <%@ include file="IncludeAccountFields.jsp"%>
