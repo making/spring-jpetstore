@@ -45,14 +45,6 @@
         <filter-name>HttpMethodFilter</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
-    <filter>
-        <filter-name>Spring OpenEntityManagerInViewFilter</filter-name>
-        <filter-class>org.springframework.orm.jpa.support.OpenEntityManagerInViewFilter</filter-class>
-    </filter>
-    <filter-mapping>
-        <filter-name>Spring OpenEntityManagerInViewFilter</filter-name>
-        <url-pattern>/*</url-pattern>
-    </filter-mapping>
 
     <filter>
         <filter-name>springSecurityFilterChain</filter-name>
@@ -87,27 +79,11 @@
         </jsp-property-group>
     </jsp-config>
     <error-page>
-        <error-code>400</error-code>
-        <location>/WEB-INF/views/systemError.jsp?exceptionCode=e.tm.9400</location>
-    </error-page>
-    <error-page>
-        <error-code>401</error-code>
-        <location>/WEB-INF/views/systemError.jsp?exceptionCode=e.tm.9401</location>
-    </error-page>
-    <error-page>
         <error-code>404</error-code>
-        <location>/WEB-INF/views/notFoundError.jsp?exceptionCode=e.tm.9404</location>
-    </error-page>
-    <error-page>
-        <error-code>405</error-code>
-        <location>/WEB-INF/views/systemError.jsp?exceptionCode=e.tm.9405</location>
-    </error-page>
-    <error-page>
-        <error-code>409</error-code>
-        <location>/WEB-INF/views/tokenError.jsp?exceptionCode=e.tm.9409</location>
+        <location>/WEB-INF/views/notFoundError.jsp</location>
     </error-page>
     <error-page>
         <error-code>500</error-code>
-        <location>/WEB-INF/views/systemError.jsp?exceptionCode=e.tm.9500</location>
+        <location>/WEB-INF/views/systemError.jsp</location>
     </error-page>
 </web-app>

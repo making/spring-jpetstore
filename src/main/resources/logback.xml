@@ -2,14 +2,14 @@
 <configuration>
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
-            <pattern><![CDATA[%d{yyyy-MM-dd HH:mm:ss} [%thread] [%-5level] [%-48logger{48}] - %msg%n]]></pattern>
+            <pattern><![CDATA[date:%d{yyyy-MM-dd HH:mm:ss}\tthread:%thread\tlevel:%-5level\tlogger:%-48logger{48}\tmsg:%msg%n]]></pattern>
         </encoder>
     </appender>
 
     <appender name="ROLLING"
         class="ch.qos.logback.core.rolling.RollingFileAppender">
         <Encoding>UTF-8</Encoding>
-        <File>log/spring-petstore.log</File>
+        <File>log/spring-jpetstore.log</File>
         <rollingPolicy
             class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <FileNamePattern>log/spring-petstore-%d{yyyyMMdd}.log
@@ -17,7 +17,7 @@
             <MaxHistory>2</MaxHistory>
         </rollingPolicy>
         <encoder>
-            <Pattern><![CDATA[%d{yyyy-MM-dd HH:mm:ss} [%thread] [%-5level] [%-48logger{48}] - %msg%n]]>
+            <Pattern><![CDATA[date:%d{yyyy-MM-dd HH:mm:ss}\tthread:%thread\tlevel:%-5level\tlogger:%-48logger{48}\tmsg:%msg%n]]>
             </Pattern>
         </encoder>
     </appender>
@@ -57,21 +57,8 @@
         <level value="debug" />
     </logger>
 
-    <!-- for hibernate3 -->
-    <logger name="org.hibernate.transaction">
-        <level value="debug" />
-    </logger>
-
-    <!-- for hibernate4 -->
-    <logger name="org.hibernate.engine.transaction">
-        <level value="debug" />
-    </logger>
-
-    <logger name="org.hibernate.cfg.annotations.QueryBinder">
-        <level value="debug" />
-    </logger>
-
-    <logger name="org.hibernate.tool">
+    <logger
+        name="org.springframework.jdbc.datasource.DataSourceTransactionManager">
         <level value="debug" />
     </logger>
 
