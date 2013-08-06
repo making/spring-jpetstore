@@ -10,12 +10,15 @@ import java.util.Collections;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.validation.groups.Default;
 
 import org.dozer.Mapper;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -33,6 +36,9 @@ public class AccountController {
     @Inject
     protected AccountHelper accountHelper;
 
+    @Inject
+    protected PasswordEqualsValidator passwordEqualsValidator;
+
     static {
         List<String> langList = new ArrayList<String>();
         langList.add("english");
@@ -46,6 +52,11 @@ public class AccountController {
         catList.add("CATS");
         catList.add("BIRDS");
         CATEGORY_LIST = Collections.unmodifiableList(catList);
+    }
+
+    @InitBinder("accountForm")
+    public void initBinder(WebDataBinder webDataBinder) {
+        webDataBinder.addValidators(passwordEqualsValidator);
     }
 
     @ModelAttribute("languageList")
@@ -74,7 +85,8 @@ public class AccountController {
     }
 
     @RequestMapping("newAccount")
-    public String newAccount(@Validated(NewAccount.class) AccountForm form,
+    public String newAccount(
+            @Validated({ NewAccount.class, Default.class }) AccountForm form,
             BindingResult result) {
         if (result.hasErrors()) {
             return "account/NewAccountForm";
@@ -94,9 +106,13 @@ public class AccountController {
     }
 
     @RequestMapping("editAccount")
-    public String editAccount(@Validated(EditAccount.class) AccountForm form,
+    public String editAccount(
+            @Validated({ EditAccount.class, Default.class }) AccountForm form,
             BindingResult result) {
         if (result.hasErrors()) {
+            UserDetails userDetails = (UserDetails) SecurityContextHolder
+                    .getContext().getAuthentication().getPrincipal();
+            form.setUsername(userDetails.getUsername());
             return "account/EditAccountForm";
         }
         accountHelper.editAccount(form);

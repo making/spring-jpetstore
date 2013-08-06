@@ -63,7 +63,8 @@
     <tr>
         <td>Favourite Category:</td>
         <td><form:select path="favouriteCategoryId"
-                items="${categoryList}" /> <form:errors path="country" /></td>
+                items="${categoryList}" /> <form:errors
+                path="favouriteCategoryId" /></td>
     </tr>
     <tr>
         <td>Enable MyList</td>
