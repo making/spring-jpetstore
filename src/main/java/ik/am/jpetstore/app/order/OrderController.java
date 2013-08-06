@@ -31,6 +31,9 @@ public class OrderController {
     private static final List<String> CARD_TYPE_LIST;
 
     @Inject
+    protected OrderHelper orderHelper;
+
+    @Inject
     protected OrderService orderService;
 
     @Inject
@@ -84,14 +87,7 @@ public class OrderController {
     @RequestMapping(value = "newOrder", params = "confirmed")
     public String newOrder(OrderForm orderForm, SessionStatus status,
             RedirectAttributes attributes) {
-        UserDetails userDetails = (UserDetails) SecurityContextHolder
-                .getContext().getAuthentication().getPrincipal();
-        Account account = userDetails.getAccount();
-
-        Order order = new Order();
-        order.initOrder(account, cart);
-        beanMapper.map(orderForm, order);
-        orderService.insertOrder(order);
+        Order order = orderHelper.newOrder(orderForm, cart);
 
         attributes.addAttribute("orderId", order.getOrderId());
         attributes.addFlashAttribute("message",
