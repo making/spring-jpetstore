@@ -49,21 +49,21 @@
                         href="${pageContext.request.contextPath}/account/editAccountForm">
                         My Account </a>
                 </sec:authorize>
-                <img align="middle"
-                    src="${pageContext.request.contextPath}/resources/images/separator.gif" />
-                <a href="${pageContext.request.contextPath}/help.html">?</a>
+                <!--                 <img align="middle" -->
+                <%--                     src="${pageContext.request.contextPath}/resources/images/separator.gif" /> --%>
+                <%--                 <a href="${pageContext.request.contextPath}/help.html">?</a> --%>
             </div>
         </div>
 
         <div id="Search">
             <div id="SearchContent">
-                <form:form
+                <form
                     action="${pageContext.request.contextPath}/catalog/"
-                    modelAttribute="productSearchForm" method="get">
-                    <form:input path="keyword" size="14" />
-                    <input type="submit" name="searchProducts"
+                    method="get">
+                    <input type="input" name="keyword" size="14" /> <input
+                        type="submit" name="searchProducts"
                         value="Search" />
-                </form:form>
+                </form>
             </div>
         </div>
 

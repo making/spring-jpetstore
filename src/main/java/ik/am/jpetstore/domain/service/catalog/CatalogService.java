@@ -8,21 +8,21 @@ import java.util.List;
 
 public interface CatalogService {
 
-	List<Category> getCategoryList();
+    List<Category> getCategoryList();
 
-	Category getCategory(String categoryId);
+    Category getCategory(String categoryId);
 
-	Product getProduct(String productId);
+    Product getProduct(String productId);
 
-	List<Product> getProductListByCategory(String categoryId);
+    List<Product> getProductListByCategory(String categoryId);
 
-	// TODO enable using more than one keyword
-	List<Product> searchProductList(String keyword);
+    // TODO enable using more than one keyword
+    List<Product> searchProductList(String keyword);
 
-	List<Item> getItemListByProduct(String productId);
+    List<Item> getItemListByProduct(String productId);
 
-	Item getItem(String itemId);
+    Item getItem(String itemId);
 
-	boolean isItemInStock(String itemId);
+    boolean isItemInStock(String itemId);
 
 }

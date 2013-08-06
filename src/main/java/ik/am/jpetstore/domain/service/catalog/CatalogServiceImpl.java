@@ -30,80 +30,90 @@ import org.springframework.stereotype.Service;
 
 /**
  * @author Eduardo Macarron
- *
  */
 @Service
 public class CatalogServiceImpl implements CatalogService {
 
-  @Inject
-  private CategoryRepository categoryRepository;
-  @Inject
-  private ItemRepository itemRepository;
-  @Inject
-  private ProductRepository productRepository;
+    @Inject
+    private CategoryRepository categoryRepository;
 
-  /* (non-Javadoc)
- * @see ik.am.jpetstore.domain.service.catalog.CategoryService#getCategoryList()
- */
-@Override
-public List<Category> getCategoryList() {
-    return categoryRepository.getCategoryList();
-  }
+    @Inject
+    private ItemRepository itemRepository;
 
-  /* (non-Javadoc)
- * @see ik.am.jpetstore.domain.service.catalog.CategoryService#getCategory(java.lang.String)
- */
-@Override
-public Category getCategory(String categoryId) {
-    return categoryRepository.getCategory(categoryId);
-  }
+    @Inject
+    private ProductRepository productRepository;
 
-  /* (non-Javadoc)
- * @see ik.am.jpetstore.domain.service.catalog.CategoryService#getProduct(java.lang.String)
- */
-@Override
-public Product getProduct(String productId) {
-    return productRepository.getProduct(productId);
-  }
+    /*
+     * (non-Javadoc)
+     * @see ik.am.jpetstore.domain.service.catalog.CategoryService#getCategoryList()
+     */
+    @Override
+    public List<Category> getCategoryList() {
+        return categoryRepository.getCategoryList();
+    }
 
-  /* (non-Javadoc)
- * @see ik.am.jpetstore.domain.service.catalog.CategoryService#getProductListByCategory(java.lang.String)
- */
-@Override
-public List<Product> getProductListByCategory(String categoryId) {
-    return productRepository.getProductListByCategory(categoryId);
-  }
+    /*
+     * (non-Javadoc)
+     * @see ik.am.jpetstore.domain.service.catalog.CategoryService#getCategory(java.lang.String)
+     */
+    @Override
+    public Category getCategory(String categoryId) {
+        return categoryRepository.getCategory(categoryId);
+    }
 
-  // TODO enable using more than one keyword
-  /* (non-Javadoc)
- * @see ik.am.jpetstore.domain.service.catalog.CategoryService#searchProductList(java.lang.String)
- */
-@Override
-public List<Product> searchProductList(String keyword) {
-    return productRepository.searchProductList("%" + keyword.toLowerCase() + "%");
-  }
+    /*
+     * (non-Javadoc)
+     * @see ik.am.jpetstore.domain.service.catalog.CategoryService#getProduct(java.lang.String)
+     */
+    @Override
+    public Product getProduct(String productId) {
+        return productRepository.getProduct(productId);
+    }
 
-  /* (non-Javadoc)
- * @see ik.am.jpetstore.domain.service.catalog.CategoryService#getItemListByProduct(java.lang.String)
- */
-@Override
-public List<Item> getItemListByProduct(String productId) {
-    return itemRepository.getItemListByProduct(productId);
-  }
+    /*
+     * (non-Javadoc)
+     * @see ik.am.jpetstore.domain.service.catalog.CategoryService#getProductListByCategory(java.lang.String)
+     */
+    @Override
+    public List<Product> getProductListByCategory(String categoryId) {
+        return productRepository.getProductListByCategory(categoryId);
+    }
 
-  /* (non-Javadoc)
- * @see ik.am.jpetstore.domain.service.catalog.CategoryService#getItem(java.lang.String)
- */
-@Override
-public Item getItem(String itemId) {
-    return itemRepository.getItem(itemId);
-  }
+    // TODO enable using more than one keyword
+    /*
+     * (non-Javadoc)
+     * @see ik.am.jpetstore.domain.service.catalog.CategoryService#searchProductList(java.lang.String)
+     */
+    @Override
+    public List<Product> searchProductList(String keyword) {
+        return productRepository.searchProductList("%" + keyword.toLowerCase()
+                + "%");
+    }
 
-  /* (non-Javadoc)
- * @see ik.am.jpetstore.domain.service.catalog.CategoryService#isItemInStock(java.lang.String)
- */
-@Override
-public boolean isItemInStock(String itemId) {
-    return itemRepository.getInventoryQuantity(itemId) > 0;
-  }
+    /*
+     * (non-Javadoc)
+     * @see ik.am.jpetstore.domain.service.catalog.CategoryService#getItemListByProduct(java.lang.String)
+     */
+    @Override
+    public List<Item> getItemListByProduct(String productId) {
+        return itemRepository.getItemListByProduct(productId);
+    }
+
+    /*
+     * (non-Javadoc)
+     * @see ik.am.jpetstore.domain.service.catalog.CategoryService#getItem(java.lang.String)
+     */
+    @Override
+    public Item getItem(String itemId) {
+        return itemRepository.getItem(itemId);
+    }
+
+    /*
+     * (non-Javadoc)
+     * @see ik.am.jpetstore.domain.service.catalog.CategoryService#isItemInStock(java.lang.String)
+     */
+    @Override
+    public boolean isItemInStock(String itemId) {
+        return itemRepository.getInventoryQuantity(itemId) > 0;
+    }
 }

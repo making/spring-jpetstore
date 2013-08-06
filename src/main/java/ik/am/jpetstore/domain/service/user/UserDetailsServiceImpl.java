@@ -16,22 +16,21 @@ import org.springframework.stereotype.Service;
 
 @Service("userDetailsService")
 public class UserDetailsServiceImpl implements UserDetailsService {
-	@Inject
-	protected AccountService accountService;
+    @Inject
+    protected AccountService accountService;
 
-	@Inject
-	protected CatalogService catalogService;
+    @Inject
+    protected CatalogService catalogService;
 
-	@Override
-	public UserDetails loadUserByUsername(String username)
-			throws UsernameNotFoundException {
-		Account account = accountService.getAccount(username);
-		if (account == null) {
-			throw new UsernameNotFoundException(username + " is not found.");
-		}
-		List<Product> myList = catalogService.getProductListByCategory(account
-				.getFavouriteCategoryId());
-		return new ik.am.jpetstore.domain.model.UserDetails(account, myList);
-	}
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        Account account = accountService.getAccount(username);
+        if (account == null) {
+            throw new UsernameNotFoundException(username + " is not found.");
+        }
+        List<Product> myList = catalogService.getProductListByCategory(account
+                .getFavouriteCategoryId());
+        return new ik.am.jpetstore.domain.model.UserDetails(account, myList);
+    }
 
 }

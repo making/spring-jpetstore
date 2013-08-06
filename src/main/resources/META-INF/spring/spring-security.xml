@@ -13,6 +13,8 @@
             authentication-failure-url="/account/signonForm?error=true" />
         <sec:logout delete-cookies="JSESSIONID" logout-url="/account/signoff"
             logout-success-url="/" />
+        <sec:intercept-url pattern="/account/editAccount*"
+            access="isAuthenticated()" />
         <sec:intercept-url pattern="/order/**" access="isAuthenticated()" />
     </sec:http>
 

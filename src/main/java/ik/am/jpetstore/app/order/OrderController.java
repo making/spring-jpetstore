@@ -28,95 +28,105 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @SessionAttributes("scopedTarget.cart")
 public class OrderController {
 
-	private static final List<String> CARD_TYPE_LIST;
+    private static final List<String> CARD_TYPE_LIST;
 
-	@Inject
-	protected OrderService orderService;
+    @Inject
+    protected OrderService orderService;
 
-	@Inject
-	protected Mapper beanMapper;
+    @Inject
+    protected Mapper beanMapper;
 
-	@Inject
-	protected Cart cart;
+    @Inject
+    protected Cart cart;
 
-	static {
-		List<String> cardList = new ArrayList<String>();
-		cardList.add("Visa");
-		cardList.add("MasterCard");
-		cardList.add("American Express");
-		CARD_TYPE_LIST = Collections.unmodifiableList(cardList);
-	}
+    static {
+        List<String> cardList = new ArrayList<String>();
+        cardList.add("Visa");
+        cardList.add("MasterCard");
+        cardList.add("American Express");
+        CARD_TYPE_LIST = Collections.unmodifiableList(cardList);
+    }
 
-	@ModelAttribute
-	public OrderForm setUpForm() {
-		return new OrderForm();
-	}
+    @ModelAttribute
+    public OrderForm setUpForm() {
+        return new OrderForm();
+    }
 
-	@ModelAttribute("creditCardTypes")
-	public List<String> getCardTypeList() {
-		return CARD_TYPE_LIST;
-	}
+    @ModelAttribute("creditCardTypes")
+    public List<String> getCardTypeList() {
+        return CARD_TYPE_LIST;
+    }
 
-	@RequestMapping("newOrderForm")
-	public String newOrderForm(OrderForm orderForm, Model model) {
-		System.out.println(cart);
-		System.out.println(cart.getCartItemList());
+    @RequestMapping("newOrderForm")
+    public String newOrderForm(OrderForm orderForm, Model model) {
+        System.out.println(cart);
+        System.out.println(cart.getCartItemList());
 
-		UserDetails userDetails = (UserDetails) SecurityContextHolder
-				.getContext().getAuthentication().getPrincipal();
-		Account account = userDetails.getAccount();
+        UserDetails userDetails = (UserDetails) SecurityContextHolder
+                .getContext().getAuthentication().getPrincipal();
+        Account account = userDetails.getAccount();
 
-		Order order = new Order();
-		order.initOrder(account, cart);
-		beanMapper.map(order, orderForm);
-		model.addAttribute(order);
+        Order order = new Order();
+        order.initOrder(account, cart);
+        beanMapper.map(order, orderForm);
+        model.addAttribute(order);
 
-		return "order/NewOrderForm";
-	}
+        return "order/NewOrderForm";
+    }
 
-	@RequestMapping(value = "newOrder")
-	public String confirmOrder(OrderForm orderForm, Order order) {
-		return "order/ConfirmOrder";
-	}
+    @RequestMapping(value = "newOrder")
+    public String confirmOrder(OrderForm orderForm, Order order) {
+        return "order/ConfirmOrder";
+    }
 
-	@RequestMapping(value = "newOrder", params = "shippingAddressRequired=true")
-	public String shippingForm(OrderForm orderForm, Order order) {
-		return "order/ShippingForm";
-	}
+    @RequestMapping(value = "newOrder", params = "shippingAddressRequired=true")
+    public String shippingForm(OrderForm orderForm, Order order) {
+        return "order/ShippingForm";
+    }
 
-	@RequestMapping(value = "newOrder", params = "confirmed")
-	public String newOrder(OrderForm orderForm, SessionStatus status,
-			RedirectAttributes attributes) {
-		UserDetails userDetails = (UserDetails) SecurityContextHolder
-				.getContext().getAuthentication().getPrincipal();
-		Account account = userDetails.getAccount();
+    @RequestMapping(value = "newOrder", params = "confirmed")
+    public String newOrder(OrderForm orderForm, SessionStatus status,
+            RedirectAttributes attributes) {
+        UserDetails userDetails = (UserDetails) SecurityContextHolder
+                .getContext().getAuthentication().getPrincipal();
+        Account account = userDetails.getAccount();
 
-		Order order = new Order();
-		order.initOrder(account, cart);
-		beanMapper.map(orderForm, order);
-		orderService.insertOrder(order);
+        Order order = new Order();
+        order.initOrder(account, cart);
+        beanMapper.map(orderForm, order);
+        orderService.insertOrder(order);
 
-		attributes.addAttribute("orderId", order.getOrderId());
-		attributes.addFlashAttribute("message",
-				"You may only view your own orders.");
-		status.setComplete();
-		return "redirect:/order/viewOrder";
-	}
+        attributes.addAttribute("orderId", order.getOrderId());
+        attributes.addFlashAttribute("message",
+                "Thank you, your order has been submitted.");
+        status.setComplete();
+        return "redirect:/order/viewOrder";
+    }
 
-	@RequestMapping("viewOrder")
-	public String viewOrder(@RequestParam("orderId") int orderId, Model model) {
-		Order order = orderService.getOrder(orderId);
+    @RequestMapping("viewOrder")
+    public String viewOrder(@RequestParam("orderId") int orderId, Model model) {
+        Order order = orderService.getOrder(orderId);
 
-		UserDetails userDetails = (UserDetails) SecurityContextHolder
-				.getContext().getAuthentication().getPrincipal();
-		Account account = userDetails.getAccount();
-		if (account.getUsername().equals(order.getUsername())) {
-			model.addAttribute(order);
-		} else {
-			// TODO
-		}
+        UserDetails userDetails = (UserDetails) SecurityContextHolder
+                .getContext().getAuthentication().getPrincipal();
+        Account account = userDetails.getAccount();
+        if (account.getUsername().equals(order.getUsername())) {
+            model.addAttribute(order);
+            return "order/ViewOrder";
+        } else {
+            // TODO
+            model.addAttribute("You may only view your own orders.");
+            return "common/Error";
+        }
+    }
 
-		return "order/ViewOrder";
-	}
-
+    @RequestMapping("listOrders")
+    public String listOrders(Model model) {
+        UserDetails userDetails = (UserDetails) SecurityContextHolder
+                .getContext().getAuthentication().getPrincipal();
+        String username = userDetails.getUsername();
+        List<Order> orderList = orderService.getOrdersByUsername(username);
+        model.addAttribute("orderList", orderList);
+        return "order/ListOrders";
+    }
 }

@@ -20,15 +20,13 @@ import ik.am.jpetstore.domain.model.Category;
 
 import java.util.List;
 
-
 /**
  * @author Eduardo Macarron
- *
  */
 public interface CategoryRepository {
 
-  List<Category> getCategoryList();
+    List<Category> getCategoryList();
 
-  Category getCategory(String categoryId);
+    Category getCategory(String categoryId);
 
 }

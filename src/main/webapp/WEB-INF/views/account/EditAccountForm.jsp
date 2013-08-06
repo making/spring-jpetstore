@@ -1,31 +1,33 @@
 <%@ include file="../common/IncludeTop.jsp"%>
 
-<div id="Catalog"><stripes:form
-	beanclass="org.mybatis.jpetstore.web.actions.AccountActionBean"
-	focus="">
+<div id="Catalog">
+    <form:form modelAttribute="accountForm"
+        action="${pageContext.request.contextPath}/account/editAccount">
 
-	<h3>User Information</h3>
+        <h3>User Information</h3>
 
-	<table>
-		<tr>
-			<td>User ID:</td>
-			<td>${actionBean.username}</td>
-		</tr>
-		<tr>
-			<td>New password:</td>
-			<td><stripes:text name="password" /></td>
-		</tr>
-		<tr>
-			<td>Repeat password:</td>
-			<td><stripes:text name="repeatedPassword" /></td>
-		</tr>
-	</table>
-	<%@ include file="IncludeAccountFields.jsp"%>
+        <table>
+            <tr>
+                <td>User ID:</td>
+                <td>${f:h(accountForm.username)}</td>
+            </tr>
+            <tr>
+                <td>New password:</td>
+                <td><form:input path="password" /></td>
+            </tr>
+            <tr>
+                <td>Repeat password:</td>
+                <td><form:input path="repeatedPassword" /></td>
+            </tr>
+        </table>
+        <%@ include file="IncludeAccountFields.jsp"%>
 
-	<stripes:submit name="editAccount" value="Save Account Information" />
+        <input type="submit" name="editAccount"
+            value="Save Account Information" />
 
-</stripes:form> <stripes:link
-	beanclass="org.mybatis.jpetstore.web.actions.OrderActionBean"
-	event="listOrders">My Orders</stripes:link></div>
+    </form:form>
+    <a href="${pageContext.request.contextPath}/order/listOrders">My
+        Orders</a>
+</div>
 
 <%@ include file="../common/IncludeBottom.jsp"%>

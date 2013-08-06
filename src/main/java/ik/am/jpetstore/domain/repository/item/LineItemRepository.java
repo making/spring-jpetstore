@@ -20,15 +20,13 @@ import ik.am.jpetstore.domain.model.LineItem;
 
 import java.util.List;
 
-
 /**
  * @author Eduardo Macarron
- *
  */
 public interface LineItemRepository {
 
-  List<LineItem> getLineItemsByOrderId(int orderId);
+    List<LineItem> getLineItemsByOrderId(int orderId);
 
-  void insertLineItem(LineItem lineItem);
+    void insertLineItem(LineItem lineItem);
 
 }

@@ -22,175 +22,191 @@ import java.io.Serializable;
 
 /**
  * @author Eduardo Macarron
- *
  */
 public class Account implements Serializable {
 
-  private static final long serialVersionUID = 8751282105532159742L;
+    private static final long serialVersionUID = 8751282105532159742L;
 
-  private String username;
-  private String password;
-  private String email;
-  private String firstName;
-  private String lastName;
-  private String status;
-  private String address1;
-  private String address2;
-  private String city;
-  private String state;
-  private String zip;
-  private String country;
-  private String phone;
-  private String favouriteCategoryId;
-  private String languagePreference;
-  private boolean listOption;
-  private boolean bannerOption;
-  private String bannerName;
+    private String username;
 
-  public String getUsername() {
-    return username;
-  }
+    private String password;
 
-  public void setUsername(String username) {
-    this.username = username;
-  }
+    private String email;
 
-  public String getPassword() {
-    return password;
-  }
+    private String firstName;
 
-  public void setPassword(String password) {
-    this.password = password;
-  }
+    private String lastName;
 
-  public String getEmail() {
-    return email;
-  }
+    private String status;
 
-  public void setEmail(String email) {
-    this.email = email;
-  }
+    private String address1;
 
-  public String getFirstName() {
-    return firstName;
-  }
+    private String address2;
 
-//  @Validate(required=true, on={"newAccount", "editAccount"})
-  public void setFirstName(String firstName) {
-    this.firstName = firstName;
-  }
+    private String city;
 
-  public String getLastName() {
-    return lastName;
-  }
+    private String state;
 
-//  @Validate(required=true, on={"newAccount", "editAccount"})
-  public void setLastName(String lastName) {
-    this.lastName = lastName;
-  }
+    private String zip;
 
-  public String getStatus() {
-    return status;
-  }
+    private String country;
 
-  public void setStatus(String status) {
-    this.status = status;
-  }
+    private String phone;
 
-  public String getAddress1() {
-    return address1;
-  }
+    private String favouriteCategoryId;
 
-  public void setAddress1(String address1) {
-    this.address1 = address1;
-  }
+    private String languagePreference;
 
-  public String getAddress2() {
-    return address2;
-  }
+    private boolean listOption;
 
-  public void setAddress2(String address2) {
-    this.address2 = address2;
-  }
+    private boolean bannerOption;
 
-  public String getCity() {
-    return city;
-  }
+    private String bannerName;
 
-  public void setCity(String city) {
-    this.city = city;
-  }
+    public String getUsername() {
+        return username;
+    }
 
-  public String getState() {
-    return state;
-  }
+    public void setUsername(String username) {
+        this.username = username;
+    }
 
-  public void setState(String state) {
-    this.state = state;
-  }
+    public String getPassword() {
+        return password;
+    }
 
-  public String getZip() {
-    return zip;
-  }
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
-  public void setZip(String zip) {
-    this.zip = zip;
-  }
+    public String getEmail() {
+        return email;
+    }
 
-  public String getCountry() {
-    return country;
-  }
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
-  public void setCountry(String country) {
-    this.country = country;
-  }
+    public String getFirstName() {
+        return firstName;
+    }
 
-  public String getPhone() {
-    return phone;
-  }
+    // @Validate(required=true, on={"newAccount", "editAccount"})
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
 
-  public void setPhone(String phone) {
-    this.phone = phone;
-  }
+    public String getLastName() {
+        return lastName;
+    }
 
-  public String getFavouriteCategoryId() {
-    return favouriteCategoryId;
-  }
+    // @Validate(required=true, on={"newAccount", "editAccount"})
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
 
-  public void setFavouriteCategoryId(String favouriteCategoryId) {
-    this.favouriteCategoryId = favouriteCategoryId;
-  }
+    public String getStatus() {
+        return status;
+    }
 
-  public String getLanguagePreference() {
-    return languagePreference;
-  }
+    public void setStatus(String status) {
+        this.status = status;
+    }
 
-  public void setLanguagePreference(String languagePreference) {
-    this.languagePreference = languagePreference;
-  }
+    public String getAddress1() {
+        return address1;
+    }
 
-  public boolean isListOption() {
-    return listOption;
-  }
+    public void setAddress1(String address1) {
+        this.address1 = address1;
+    }
 
-  public void setListOption(boolean listOption) {
-    this.listOption = listOption;
-  }
+    public String getAddress2() {
+        return address2;
+    }
 
-  public boolean isBannerOption() {
-    return bannerOption;
-  }
+    public void setAddress2(String address2) {
+        this.address2 = address2;
+    }
 
-  public void setBannerOption(boolean bannerOption) {
-    this.bannerOption = bannerOption;
-  }
+    public String getCity() {
+        return city;
+    }
 
-  public String getBannerName() {
-    return bannerName;
-  }
+    public void setCity(String city) {
+        this.city = city;
+    }
 
-  public void setBannerName(String bannerName) {
-    this.bannerName = bannerName;
-  }
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
+
+    public String getZip() {
+        return zip;
+    }
+
+    public void setZip(String zip) {
+        this.zip = zip;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getFavouriteCategoryId() {
+        return favouriteCategoryId;
+    }
+
+    public void setFavouriteCategoryId(String favouriteCategoryId) {
+        this.favouriteCategoryId = favouriteCategoryId;
+    }
+
+    public String getLanguagePreference() {
+        return languagePreference;
+    }
+
+    public void setLanguagePreference(String languagePreference) {
+        this.languagePreference = languagePreference;
+    }
+
+    public boolean isListOption() {
+        return listOption;
+    }
+
+    public void setListOption(boolean listOption) {
+        this.listOption = listOption;
+    }
+
+    public boolean isBannerOption() {
+        return bannerOption;
+    }
+
+    public void setBannerOption(boolean bannerOption) {
+        this.bannerOption = bannerOption;
+    }
+
+    public String getBannerName() {
+        return bannerName;
+    }
+
+    public void setBannerName(String bannerName) {
+        this.bannerName = bannerName;
+    }
 
 }

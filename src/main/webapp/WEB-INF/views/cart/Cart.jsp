@@ -77,7 +77,7 @@
         <sec:authentication property="principal.account" var="account" />
         <div id="MyList">
             <c:if
-                test="${!empty account.listOption}">
+                test="${account.listOption}">
                 <%@ include file="IncludeMyList.jsp"%>
             </c:if>
         </div>

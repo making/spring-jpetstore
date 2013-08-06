@@ -1,7 +1,7 @@
 <%@ include file="../common/IncludeTop.jsp"%>
 
 <div id="Catalog">
-    <form:form
+    <form:form modelAttribute="accountForm"
         action="${pageContext.request.contextPath}/account/newAccount">
 
         <h3>User Information</h3>

@@ -20,51 +20,53 @@ import java.io.Serializable;
 
 /**
  * @author Eduardo Macarron
- *
  */
 public class Product implements Serializable {
 
-  private static final long serialVersionUID = -7492639752670189553L;
-  
-  private String productId;
-  private String categoryId;
-  private String name;
-  private String description;
+    private static final long serialVersionUID = -7492639752670189553L;
 
-  public String getProductId() {
-    return productId;
-  }
+    private String productId;
 
-  public void setProductId(String productId) {
-    this.productId = productId.trim();
-  }
+    private String categoryId;
 
-  public String getCategoryId() {
-    return categoryId;
-  }
+    private String name;
 
-  public void setCategoryId(String categoryId) {
-    this.categoryId = categoryId;
-  }
+    private String description;
 
-  public String getName() {
-    return name;
-  }
+    public String getProductId() {
+        return productId;
+    }
 
-  public void setName(String name) {
-    this.name = name;
-  }
+    public void setProductId(String productId) {
+        this.productId = productId.trim();
+    }
 
-  public String getDescription() {
-    return description;
-  }
+    public String getCategoryId() {
+        return categoryId;
+    }
 
-  public void setDescription(String description) {
-    this.description = description;
-  }
+    public void setCategoryId(String categoryId) {
+        this.categoryId = categoryId;
+    }
 
-  public String toString() {
-    return getName();
-  }
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String toString() {
+        return getName();
+    }
 
 }

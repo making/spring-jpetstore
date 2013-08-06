@@ -20,19 +20,17 @@ import ik.am.jpetstore.domain.model.Order;
 
 import java.util.List;
 
-
 /**
  * @author Eduardo Macarron
- *
  */
 public interface OrderRepository {
 
-  List<Order> getOrdersByUsername(String username);
+    List<Order> getOrdersByUsername(String username);
 
-  Order getOrder(int orderId);
-  
-  void insertOrder(Order order);
-  
-  void insertOrderStatus(Order order);
+    Order getOrder(int orderId);
+
+    void insertOrder(Order order);
+
+    void insertOrderStatus(Order order);
 
 }

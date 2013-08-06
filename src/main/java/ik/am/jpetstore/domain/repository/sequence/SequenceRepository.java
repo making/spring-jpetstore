@@ -18,13 +18,12 @@ package ik.am.jpetstore.domain.repository.sequence;
 
 import ik.am.jpetstore.domain.model.Sequence;
 
-
 /**
  * @author Eduardo Macarron
- *
  */
 public interface SequenceRepository {
 
-  Sequence getSequence(Sequence sequence);
-  void updateSequence(Sequence sequence);
+    Sequence getSequence(Sequence sequence);
+
+    void updateSequence(Sequence sequence);
 }

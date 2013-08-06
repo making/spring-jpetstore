@@ -1,184 +1,203 @@
 package ik.am.jpetstore.app.order;
 
 public class OrderForm {
-	private String cardType;
-	private String creditCard;
-	private String expiryDate;
-	private String billToFirstName;
-	private String billToLastName;
-	private String billAddress1;
-	private String billAddress2;
-	private String billCity;
-	private String billState;
-	private String billZip;
-	private String billCountry;
-	private String shipToFirstName;
-	private String shipToLastName;
-	private String shipAddress1;
-	private String shipAddress2;
-	private String shipCity;
-	private String shipState;
-	private String shipZip;
-	private String shipCountry;
-	private boolean shippingAddressRequired;
+    private String cardType;
 
-	public String getCardType() {
-		return cardType;
-	}
+    private String creditCard;
 
-	public void setCardType(String cardType) {
-		this.cardType = cardType;
-	}
+    private String expiryDate;
 
-	public String getCreditCard() {
-		return creditCard;
-	}
+    private String billToFirstName;
 
-	public void setCreditCard(String creditCard) {
-		this.creditCard = creditCard;
-	}
+    private String billToLastName;
 
-	public String getExpiryDate() {
-		return expiryDate;
-	}
+    private String billAddress1;
 
-	public void setExpiryDate(String expiryDate) {
-		this.expiryDate = expiryDate;
-	}
+    private String billAddress2;
 
-	public String getBillToFirstName() {
-		return billToFirstName;
-	}
+    private String billCity;
 
-	public void setBillToFirstName(String billToFirstName) {
-		this.billToFirstName = billToFirstName;
-	}
+    private String billState;
 
-	public String getBillToLastName() {
-		return billToLastName;
-	}
+    private String billZip;
 
-	public void setBillToLastName(String billToLastName) {
-		this.billToLastName = billToLastName;
-	}
+    private String billCountry;
 
-	public String getBillAddress1() {
-		return billAddress1;
-	}
+    private String shipToFirstName;
 
-	public void setBillAddress1(String billAddress1) {
-		this.billAddress1 = billAddress1;
-	}
+    private String shipToLastName;
 
-	public String getBillAddress2() {
-		return billAddress2;
-	}
+    private String shipAddress1;
 
-	public void setBillAddress2(String billAddress2) {
-		this.billAddress2 = billAddress2;
-	}
+    private String shipAddress2;
 
-	public String getBillCity() {
-		return billCity;
-	}
+    private String shipCity;
 
-	public void setBillCity(String billCity) {
-		this.billCity = billCity;
-	}
+    private String shipState;
 
-	public String getBillState() {
-		return billState;
-	}
+    private String shipZip;
 
-	public void setBillState(String billState) {
-		this.billState = billState;
-	}
+    private String shipCountry;
 
-	public String getBillZip() {
-		return billZip;
-	}
+    private boolean shippingAddressRequired;
 
-	public void setBillZip(String billZip) {
-		this.billZip = billZip;
-	}
+    public String getCardType() {
+        return cardType;
+    }
 
-	public String getBillCountry() {
-		return billCountry;
-	}
+    public void setCardType(String cardType) {
+        this.cardType = cardType;
+    }
 
-	public void setBillCountry(String billCountry) {
-		this.billCountry = billCountry;
-	}
+    public String getCreditCard() {
+        return creditCard;
+    }
 
-	public String getShipToFirstName() {
-		return shipToFirstName;
-	}
+    public void setCreditCard(String creditCard) {
+        this.creditCard = creditCard;
+    }
 
-	public void setShipToFirstName(String shipToFirstName) {
-		this.shipToFirstName = shipToFirstName;
-	}
+    public String getExpiryDate() {
+        return expiryDate;
+    }
 
-	public String getShipToLastName() {
-		return shipToLastName;
-	}
+    public void setExpiryDate(String expiryDate) {
+        this.expiryDate = expiryDate;
+    }
 
-	public void setShipToLastName(String shipToLastName) {
-		this.shipToLastName = shipToLastName;
-	}
+    public String getBillToFirstName() {
+        return billToFirstName;
+    }
 
-	public String getShipAddress1() {
-		return shipAddress1;
-	}
+    public void setBillToFirstName(String billToFirstName) {
+        this.billToFirstName = billToFirstName;
+    }
 
-	public void setShipAddress1(String shipAddress1) {
-		this.shipAddress1 = shipAddress1;
-	}
+    public String getBillToLastName() {
+        return billToLastName;
+    }
 
-	public String getShipAddress2() {
-		return shipAddress2;
-	}
+    public void setBillToLastName(String billToLastName) {
+        this.billToLastName = billToLastName;
+    }
 
-	public void setShipAddress2(String shipAddress2) {
-		this.shipAddress2 = shipAddress2;
-	}
+    public String getBillAddress1() {
+        return billAddress1;
+    }
 
-	public String getShipCity() {
-		return shipCity;
-	}
+    public void setBillAddress1(String billAddress1) {
+        this.billAddress1 = billAddress1;
+    }
 
-	public void setShipCity(String shipCity) {
-		this.shipCity = shipCity;
-	}
+    public String getBillAddress2() {
+        return billAddress2;
+    }
 
-	public String getShipState() {
-		return shipState;
-	}
+    public void setBillAddress2(String billAddress2) {
+        this.billAddress2 = billAddress2;
+    }
 
-	public void setShipState(String shipState) {
-		this.shipState = shipState;
-	}
+    public String getBillCity() {
+        return billCity;
+    }
 
-	public String getShipZip() {
-		return shipZip;
-	}
+    public void setBillCity(String billCity) {
+        this.billCity = billCity;
+    }
 
-	public void setShipZip(String shipZip) {
-		this.shipZip = shipZip;
-	}
+    public String getBillState() {
+        return billState;
+    }
 
-	public String getShipCountry() {
-		return shipCountry;
-	}
+    public void setBillState(String billState) {
+        this.billState = billState;
+    }
 
-	public void setShipCountry(String shipCountry) {
-		this.shipCountry = shipCountry;
-	}
+    public String getBillZip() {
+        return billZip;
+    }
 
-	public boolean isShippingAddressRequired() {
-		return shippingAddressRequired;
-	}
+    public void setBillZip(String billZip) {
+        this.billZip = billZip;
+    }
 
-	public void setShippingAddressRequired(boolean shippingAddressRequired) {
-		this.shippingAddressRequired = shippingAddressRequired;
-	}
+    public String getBillCountry() {
+        return billCountry;
+    }
+
+    public void setBillCountry(String billCountry) {
+        this.billCountry = billCountry;
+    }
+
+    public String getShipToFirstName() {
+        return shipToFirstName;
+    }
+
+    public void setShipToFirstName(String shipToFirstName) {
+        this.shipToFirstName = shipToFirstName;
+    }
+
+    public String getShipToLastName() {
+        return shipToLastName;
+    }
+
+    public void setShipToLastName(String shipToLastName) {
+        this.shipToLastName = shipToLastName;
+    }
+
+    public String getShipAddress1() {
+        return shipAddress1;
+    }
+
+    public void setShipAddress1(String shipAddress1) {
+        this.shipAddress1 = shipAddress1;
+    }
+
+    public String getShipAddress2() {
+        return shipAddress2;
+    }
+
+    public void setShipAddress2(String shipAddress2) {
+        this.shipAddress2 = shipAddress2;
+    }
+
+    public String getShipCity() {
+        return shipCity;
+    }
+
+    public void setShipCity(String shipCity) {
+        this.shipCity = shipCity;
+    }
+
+    public String getShipState() {
+        return shipState;
+    }
+
+    public void setShipState(String shipState) {
+        this.shipState = shipState;
+    }
+
+    public String getShipZip() {
+        return shipZip;
+    }
+
+    public void setShipZip(String shipZip) {
+        this.shipZip = shipZip;
+    }
+
+    public String getShipCountry() {
+        return shipCountry;
+    }
+
+    public void setShipCountry(String shipCountry) {
+        this.shipCountry = shipCountry;
+    }
+
+    public boolean isShippingAddressRequired() {
+        return shippingAddressRequired;
+    }
+
+    public void setShippingAddressRequired(boolean shippingAddressRequired) {
+        this.shippingAddressRequired = shippingAddressRequired;
+    }
 }
