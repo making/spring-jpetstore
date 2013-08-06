@@ -1,10 +1,8 @@
 package ik.am.jpetstore.app.cart;
 
-import java.util.Enumeration;
 import java.util.Iterator;
 
 import javax.inject.Inject;
-import javax.servlet.http.HttpSession;
 
 import ik.am.jpetstore.domain.model.Cart;
 import ik.am.jpetstore.domain.model.CartItem;
@@ -37,13 +35,7 @@ public class CartController {
     }
 
     @RequestMapping("viewCart")
-    public String viewCart(HttpSession session) {
-        System.out.println(cart);
-        Enumeration<String> names = session.getAttributeNames();
-        while (names.hasMoreElements()) {
-            String name = names.nextElement();
-            System.out.println(name + " = " + session.getAttribute(name));
-        }
+    public String viewCart() {
         return "cart/Cart";
     }
 

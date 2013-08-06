@@ -6,6 +6,10 @@
     version="3.0">
 
     <listener>
+        <listener-class>ik.am.jpetstore.app.common.session.HttpSessionEventLoggingListener</listener-class>
+    </listener>
+
+    <listener>
         <listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
     </listener>
 

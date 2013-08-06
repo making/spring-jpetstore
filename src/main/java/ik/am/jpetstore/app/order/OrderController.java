@@ -59,9 +59,6 @@ public class OrderController {
 
     @RequestMapping("newOrderForm")
     public String newOrderForm(OrderForm orderForm, Model model) {
-        System.out.println(cart);
-        System.out.println(cart.getCartItemList());
-
         UserDetails userDetails = (UserDetails) SecurityContextHolder
                 .getContext().getAuthentication().getPrincipal();
         Account account = userDetails.getAccount();
