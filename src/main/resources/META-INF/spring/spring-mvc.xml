@@ -18,6 +18,8 @@
             </bean>
         </mvc:argument-resolvers>
     </mvc:annotation-driven>
+    <bean
+        class="ik.am.jpetstore.app.common.session.EnableSynchronizeOnSessionPostProcessor" />
 
     <bean id="cart" class="ik.am.jpetstore.domain.model.Cart"
         scope="session">
